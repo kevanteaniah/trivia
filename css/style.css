@@ -11,85 +11,32 @@
      but can be over-ridden as needed */
   box-sizing: inherit;
 } 
-div.board-game .grid-item {
-  display: inline-grid;
-  
-  justify-content: center;
-  align-items: center;
-  border-style: groove;
 
-}
 
 body {
   background-color: #eeeeee;
   font-family: sans-serif;
+  height: 100vh;
   margin: 0;
-  display: grid;
+  
+  align-items: center;
+  justify-content: center;
   
   font-size: 24px;
 }
 
-section {
+main{
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#top-rows {
   display: flex;
 }
 
-nav {
+#bottom-rows{
   display: flex;
-  
-  align-items: center;
-
-  height: 60px;
-  background-color: #5EC2BE;
-  
-  
-  /* margin: 0px 10px; */
-  
-
-  
-  
-  
-  
-}
-
-nav > div {
-  margin: 0px 20px;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  
-}
-
-/*change divof last child of the nav*/
-nav > div:last-of-type{
-  margin-left: auto;
-}
-
-h2 {
-  text-align: center;
-}
-
-nav > img {
-  border-radius: 7px;
-  margin: 0 10px;
-  
-}
-
-footer {
-  background-color: #030303;
-  color: white;
-  height: 50px;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  
-}
-
-.flex-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
