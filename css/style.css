@@ -9,38 +9,30 @@
 *::after { /* All ::after pseudo-elements */
   /* height & width will now include border & padding by default
      but can be over-ridden as needed */
+  background-color: aliceblue;
+  font-size: 62.5%;
   box-sizing: inherit;
+  
 } 
 
+*{
+  box-sizing: border-box;
+}
 
-body {
-  background-color: #eeeeee;
-  font-family: sans-serif;
-  height: 100vh;
-  margin: auto;
-  
-  align-items: center;
+#opening-text{
+  display: flex;
   justify-content: center;
-  
-  font-size: 24px;
-}
-
-main{
-  margin: 0 auto;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  height: 100vh;
+  width: 100vh;
+}
+#title {
+
+  color: teal;
+  font-size: 5.4rem ;
+
 }
 
-#top-rows {
-  display: flex;
-}
-
-#bottom-rows{
-  display: flex;
-}
-
-#start-next-btn {
-  
+.easy-btn {
+  font-size: 20px;
 }
