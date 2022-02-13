@@ -4,15 +4,14 @@ console.log("sanity")
 
 /*-------------------------- Variables --------------------------*/
 
-let currentQuestion = {};
+let presentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let countingQuestions = 0;
 let availableQuestions = [];
 
 
-
-let questions = [
+let questions =[
     {
       question: "2+2",
       answer1: "4",
@@ -43,7 +42,7 @@ let questions = [
 ]
 
 /*------------------ Cached Element References ------------------*/
-const questionDisplay = document.querySelector("#question-display")
+const questionDisplay = document.getElementById("question-display")
 
 //turn answers box into an array
 const answers = Array.from(document.getElementsByClassName("answer"))
@@ -54,10 +53,10 @@ console.log(answers)
 /*-------------------------- Functions --------------------------*/
 
 init = () => {
-  countingQuestions = 0
+
   // spread operator gets complete copy of array 
   availableQuestions = [...questions]
-  
+  countingQuestions = 0
   getNextQuestion();
 }
 console.log(availableQuestions)
@@ -66,6 +65,7 @@ console.log(availableQuestions)
 // need to know how many questions are left
 // select it randomly
 // add 1 to the counter
+// pull one question at a time
 
 getNextQuestion = () => {
 
@@ -74,8 +74,11 @@ getNextQuestion = () => {
 
     presentQuestion = availableQuestions[numberOfQuestions]
 
-    questionDisplay.innerText = presentQuestion.questions
+    questionDisplay.innerText = presentQuestion.question
+
+    answers
+    
 
 }
-
+console.log(presentQuestion.ques)
 init()
