@@ -5,7 +5,7 @@ console.log("sanity")
 /*-------------------------- Variables --------------------------*/
 
 let presentQuestion = {};
-let acceptingAnswers = true;
+// let clickableAnswers = false;
 let score = 0;
 let countingQuestions = 0;
 let availableQuestions = [];
@@ -76,9 +76,33 @@ getNextQuestion = () => {
 
     questionDisplay.innerText = presentQuestion.question
 
-    answers
+    // pulling the answers
+    // use dataset
+
+    answers.forEach( answer => {
+      const number = answer.dataset['number'];
+      answer.innerText = presentQuestion['answer' + number]
+      console.log(number)
+    } )
     
+    // deleteQuestions slice method
+    availableQuestions.slice(numberOfQuestions, 1)
+
+    // clickableAnswers = true
 
 }
-console.log(presentQuestion.ques)
+
+answers.forEach(answer =>{
+
+  answer.addEventListener("click", choice =>{
+    console.log(choice.target)
+    let clickedOption = choice.target
+    let clickedAnswer = clickedOption.dataset["number"]
+    console.log(clickedAnswer)
+    getNextQuestion()
+  })
+  
+
+})
+
 init()
