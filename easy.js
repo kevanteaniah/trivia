@@ -4,11 +4,11 @@
 
 /*-------------------------- Variables --------------------------*/
 
-let presentQuestion = {};
-let clickableAnswers = false;
-let score = 0;
-let countingQuestions = 0;
-let availableQuestions = [];
+let availableQuestions = []
+let presentQuestion = {}
+let score = 0
+let countingQuestions = 0
+
 
 
 let questions =[
@@ -18,7 +18,7 @@ let questions =[
       answer2: "3",
       answer3: "2",
       answer4: "12",
-      correctAnswer: 1
+      correctAnswer: "1"
     },
 
     {
@@ -27,7 +27,7 @@ let questions =[
       answer2: "3",
       answer3: "2",
       answer4: "12",
-      correctAnswer: 2
+      correctAnswer: "2"
     },
 
     {
@@ -36,7 +36,7 @@ let questions =[
       answer2: "3",
       answer3: "2",
       answer4: "12",
-      correctAnswer: 3
+      correctAnswer: "3"
     },
 
 ]
@@ -52,12 +52,12 @@ console.log(answers)
 
 /*-------------------------- Functions --------------------------*/
 
-init = () => {
+function init() {
 
   // spread operator gets complete copy of array 
   availableQuestions = [...questions]
   countingQuestions = 0
-  getNextQuestion();
+  nextQuestion();
 }
 console.log(availableQuestions)
 
@@ -67,7 +67,7 @@ console.log(availableQuestions)
 // add 1 to the counter
 // pull one question at a time
 
-getNextQuestion = () => {
+function nextQuestion(){
 
     countingQuestions++
     const numberOfQuestions = Math.floor(Math.random() * availableQuestions.length)
@@ -97,22 +97,25 @@ answers.forEach(answer =>{
     
   answer.addEventListener("click", choice =>{
     // if(!clickableAnswers) return
-
+      console.log(answer)
     // clickableAnswers = false
     const clickedOption = choice.target
     const clickedAnswer = clickedOption.dataset["number"]
-
+    
+    
     if(clickedAnswer === presentQuestion.correctAnswer){
+      answer.parentElement.classList.add("correct")
 
       console.log('correct')
-    } else {
+    } else if(clickedAnswer !== presentQuestion.correctAnswer){ 
+      answer.parentElement.classList.add("wrong")
       console.log ('wrong')
     }
 
     
     
     
-    getNextQuestion()
+    nextQuestion()
   })
   
 

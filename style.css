@@ -53,3 +53,12 @@ h1 {
   background-color: aqua;
   color: aliceblue;
 }
+
+.correct{
+  background-color: green;
+
+}
+
+.wrong{
+background-color: red;
+}
