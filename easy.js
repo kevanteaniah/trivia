@@ -93,6 +93,27 @@ function render(){
   answers.forEach( answer => {
     const number = answer.dataset['number'];
     answer.innerText = currentQuestion['answer' + number]
+
+    answer.addEventListener("click", choice =>{
+      
+            console.log(answer)
+          // clickableAnswers = false
+          const clickedOption = choice.target
+          const clickedAnswer = clickedOption.dataset["number"]
+          if(clickedAnswer === currentQuestion.correctAnswer){
+            answer.parentElement.classList.add("correct")
+            
+      
+            console.log('correct')
+          } else if(clickedAnswer !== currentQuestion.correctAnswer){ 
+            answer.parentElement.classList.add("wrong")
+          
+            console.log ('wrong')
+      
+          } 
+    })
+    
+    
     
 
 })
