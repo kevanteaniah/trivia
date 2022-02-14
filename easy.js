@@ -1,11 +1,11 @@
-console.log("sanity")
+
 
 /*-------------------------- Constants --------------------------*/
 
 /*-------------------------- Variables --------------------------*/
 
 let presentQuestion = {};
-// let clickableAnswers = false;
+let clickableAnswers = false;
 let score = 0;
 let countingQuestions = 0;
 let availableQuestions = [];
@@ -18,7 +18,7 @@ let questions =[
       answer2: "3",
       answer3: "2",
       answer4: "12",
-      answer: 1
+      correctAnswer: 1
     },
 
     {
@@ -27,7 +27,7 @@ let questions =[
       answer2: "3",
       answer3: "2",
       answer4: "12",
-      answer: 2
+      correctAnswer: 2
     },
 
     {
@@ -36,7 +36,7 @@ let questions =[
       answer2: "3",
       answer3: "2",
       answer4: "12",
-      answer: 3
+      correctAnswer: 3
     },
 
 ]
@@ -82,7 +82,7 @@ getNextQuestion = () => {
     answers.forEach( answer => {
       const number = answer.dataset['number'];
       answer.innerText = presentQuestion['answer' + number]
-      console.log(number)
+      
     } )
     
     // deleteQuestions slice method
@@ -94,11 +94,24 @@ getNextQuestion = () => {
 
 answers.forEach(answer =>{
 
+    
   answer.addEventListener("click", choice =>{
-    console.log(choice.target)
-    let clickedOption = choice.target
-    let clickedAnswer = clickedOption.dataset["number"]
-    console.log(clickedAnswer)
+    // if(!clickableAnswers) return
+
+    // clickableAnswers = false
+    const clickedOption = choice.target
+    const clickedAnswer = clickedOption.dataset["number"]
+
+    if(clickedAnswer === presentQuestion.correctAnswer){
+
+      console.log('correct')
+    } else {
+      console.log ('wrong')
+    }
+
+    
+    
+    
     getNextQuestion()
   })
   
