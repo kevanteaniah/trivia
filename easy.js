@@ -1,5 +1,3 @@
-
-
 /*-------------------------- Constants --------------------------*/
 
 /*-------------------------- Variables --------------------------*/
@@ -55,7 +53,16 @@ const questionDisplay = document.getElementById("question-display")
 const answers = Array.from(document.getElementsByClassName("answer"))
 console.log(answers)
 
+const allChoices = document.querySelectorAll('#answers-box')
+
 /*----------------------- Event Listeners -----------------------*/
+
+answers.forEach( answer => {
+  
+  answer.addEventListener("click", handleClick)
+})     
+
+
 
 /*-------------------------- Functions --------------------------*/
 
@@ -69,6 +76,13 @@ function init() {
 
 init()
 function handleTurn(){
+  allChoices.forEach((choice) =>{
+
+    choice.classList.remove("correct")
+    choice.classList.remove("wrong")
+  })
+
+  
   currentQuestion = getRandomQuestion()
   console.log(currentQuestion)
   render()
@@ -78,121 +92,47 @@ function getRandomQuestion(){
 
   const randomIdx = Math.floor(Math.random() * availableQuestions.length)
   if(availableQuestions[randomIdx].asked === false){
-    
+    console.log("notAsked")
     availableQuestions[randomIdx].asked = true
+    console.log(availableQuestions[randomIdx])
     return availableQuestions[randomIdx]
   } else {
+    console.log("asked")
     getRandomQuestion()
+    
   }
 }
 
 function render(){
   questionDisplay.innerText = currentQuestion.question
   // currentQuestion = availableQuestions[numberOfQuestions]
-
+  
   answers.forEach( answer => {
     const number = answer.dataset['number'];
     answer.innerText = currentQuestion['answer' + number]
+    
+  })
+  
+}
 
-    answer.addEventListener("click", choice =>{
-      
-            console.log(answer)
-          // clickableAnswers = false
-          const clickedOption = choice.target
-          const clickedAnswer = clickedOption.dataset["number"]
+function handleClick(evt){
+  console.log(evt.target)
+  
+  const clickedOption = evt.target
+        const clickedAnswer = clickedOption.dataset["number"]
           if(clickedAnswer === currentQuestion.correctAnswer){
-            answer.parentElement.classList.add("correct")
-            
+            //if the question is answered correctly,
+            // re render with a new question
+            clickedOption.parentElement.classList.add("correct")
+            clickedOption.parentElement.classList.remove("correct")
+            handleTurn()
       
             console.log('correct')
           } else if(clickedAnswer !== currentQuestion.correctAnswer){ 
-            answer.parentElement.classList.add("wrong")
+            clickedOption.parentElement.classList.add("wrong")
           
             console.log ('wrong')
       
           } 
-    })
-    
-    
-    
-
-})
-
-
-
-
-
-
-
-
-// create a function for the next question
-// need to know how many questions are left
-// select it randomly
-// add 1 to the counter
-// pull one question at a time
-
-// function nextQuestion(){
-
-//     countingQuestions++
-//     const numberOfQuestions = Math.floor(Math.random() * availableQuestions.length)
-
-//     presentQuestion = availableQuestions[numberOfQuestions]
-
-//     questionDisplay.innerText = presentQuestion.question
-
-//     // pulling the answers
-//     // use dataset
-
-//     answers.forEach( answer => {
-//       const number = answer.dataset['number'];
-//       answer.innerText = presentQuestion['answer' + number]
-      
-//     } )
-    
-    
-    // deleteQuestions slice method
-    // availableQuestions.slice(numberOfQuestions, 1)
-
-//     // clickableAnswers = true
 
 }
-
-// answers.forEach(answer =>{
-
-    
-//   answer.addEventListener("click", choice =>{
-//     // if(!clickableAnswers) return
-//       console.log(answer)
-//     // clickableAnswers = false
-//     const clickedOption = choice.target
-//     const clickedAnswer = clickedOption.dataset["number"]
-    
-    
-//     if(clickedAnswer === presentQuestion.correctAnswer){
-//       answer.parentElement.classList.add("correct")
-//       setTimeout(() => {
-        
-        
-//       }, 5000);
-//       nextQuestion()
-
-//       console.log('correct')
-//     } else if(clickedAnswer !== presentQuestion.correctAnswer){ 
-//       answer.parentElement.classList.add("wrong")
-    
-//       console.log ('wrong')
-
-//     } 
-    
-//   })
-  
-
-// })
-
-// setTimeout(() => {
-        
-        
-// }, 5000);
-
-
-// init()
