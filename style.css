@@ -54,6 +54,14 @@ h1 {
   color: aliceblue;
 }
 
+.game-box {
+  border-radius: 10%;
+  border: 1px solid cornflowerblue;
+  padding: 10px;
+  width: 50vw;
+
+}
+
 .correct{
   background-color: green;
 
@@ -61,4 +69,15 @@ h1 {
 
 .wrong{
 background-color: red;
+}
+
+button {
+  display: flex;
+  margin: auto;
+
+}
+a {
+  
+  text-decoration: none;
+
 }

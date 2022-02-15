@@ -8,7 +8,7 @@ let score = 0
 
 let currentQuestion
 
-
+let questionsAnswered = 0
 
 
 const questions =[
@@ -53,6 +53,8 @@ const questionDisplay = document.getElementById("question-display")
 const answers = Array.from(document.getElementsByClassName("answer"))
 console.log(answers)
 
+const resetButton = document.querySelector('.reset-btn')
+
 const allChoices = document.querySelectorAll('#answers-box')
 
 /*----------------------- Event Listeners -----------------------*/
@@ -67,10 +69,10 @@ answers.forEach( answer => {
 /*-------------------------- Functions --------------------------*/
 
 function init() {
-
+  
   // spread operator gets complete copy of array 
   availableQuestions = [...questions]
-
+  questionsAnswered = 0
   handleTurn()
 }
 
@@ -85,11 +87,14 @@ function handleTurn(){
   
   currentQuestion = getRandomQuestion()
   console.log(currentQuestion)
+  
   render()
 }
 
 function getRandomQuestion(){
-
+  if(questionsAnswered >= availableQuestions.length){
+    return
+  }
   const randomIdx = Math.floor(Math.random() * availableQuestions.length)
   if(availableQuestions[randomIdx].asked === false){
     console.log("notAsked")
@@ -104,35 +109,52 @@ function getRandomQuestion(){
 }
 
 function render(){
-  questionDisplay.innerText = currentQuestion.question
-  // currentQuestion = availableQuestions[numberOfQuestions]
-  
-  answers.forEach( answer => {
-    const number = answer.dataset['number'];
-    answer.innerText = currentQuestion['answer' + number]
+  if(currentQuestion !== undefined){
+    questionDisplay.innerText = currentQuestion.question
+    // currentQuestion = availableQuestions[numberOfQuestions]
     
-  })
+    answers.forEach( answer => {
+      const number = answer.dataset['number'];
+      answer.innerText = currentQuestion['answer' + number]
+      
+    })
+  } else {
+    // You win
+  }
+  
   
 }
 
 function handleClick(evt){
   console.log(evt.target)
+  console.log("click")
   
   const clickedOption = evt.target
         const clickedAnswer = clickedOption.dataset["number"]
           if(clickedAnswer === currentQuestion.correctAnswer){
-            //if the question is answered correctly,
-            // re render with a new question
+            questionsAnswered++
+          
             clickedOption.parentElement.classList.add("correct")
-            clickedOption.parentElement.classList.remove("correct")
-            handleTurn()
-      
             console.log('correct')
+            setTimeout(() =>{
+              clickedOption.parentElement.classList.remove("correct")
+              handleTurn()
+            }, 2000)
+            
+            
+            
           } else if(clickedAnswer !== currentQuestion.correctAnswer){ 
             clickedOption.parentElement.classList.add("wrong")
+            resetButton.style.display = "block"
           
             console.log ('wrong')
       
           } 
 
 }
+
+function hideResetBtn(){
+  resetButton.style.display = "none"
+}
+
+hideResetBtn()
