@@ -48,7 +48,7 @@ const questions =[
 
 /*------------------ Cached Element References ------------------*/
 const questionDisplay = document.getElementById("question-display")
-const answerBox = document.querySelector("answer-box")
+const answerBoxes = Array.from(document.getElementsByClassName("answers-box"))
 //turn answers box into an array
 const answers = Array.from(document.getElementsByClassName("answer"))
 console.log(answers)
@@ -121,6 +121,13 @@ function render(){
   } else {
     
     questionDisplay.innerText = "Your are Brilliant, Try another category"
+    
+    
+    answers.forEach(answer => answer.remove() )
+    answerBoxes.forEach(answerBox => answerBox.remove() )
+    answerBoxes.style.borderColor = "white"
+    
+    
     
   }
   

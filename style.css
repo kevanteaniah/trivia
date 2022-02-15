@@ -57,7 +57,7 @@ h1 {
 
 .game-box {
   border-radius: 10%;
-  border: 1px solid cornflowerblue;
+  /* border: 1px solid cornflowerblue; */
   padding: 10px;
   width: 50vw;
 }
