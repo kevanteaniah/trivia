@@ -48,7 +48,7 @@ const questions =[
 
 /*------------------ Cached Element References ------------------*/
 const questionDisplay = document.getElementById("question-display")
-
+const answerBox = document.querySelector("answer-box")
 //turn answers box into an array
 const answers = Array.from(document.getElementsByClassName("answer"))
 console.log(answers)
@@ -119,7 +119,9 @@ function render(){
       
     })
   } else {
-    // You win
+    
+    questionDisplay.innerText = "Your are Brilliant, Try another category"
+    
   }
   
   
