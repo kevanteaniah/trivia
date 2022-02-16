@@ -49,16 +49,20 @@ h1 {
 }
 
 .hud-content {
-  
- 
+  position: relative;
+  top: -150px;
   justify-content: center;
   background-color: antiquewhite;
+  margin: 0 40px;
+  margin-left: 65px;
 
 }
 
 #hud {
-  
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  
   
   
 
@@ -66,6 +70,7 @@ h1 {
 
 .answers-box {
   display: flex;
+  margin: 0;
   margin-bottom: .5rem;
   width: 100%;
   font-size: 2rem;
@@ -75,6 +80,12 @@ h1 {
   max-width: 500px;
   box-shadow: 0 0.9rem 0 5.4rem 0 black;
   
+  
+
+}
+.game-box .answers-box{
+  /* margin-left: 150px; */
+  margin: 0 auto;
 
 }
 
