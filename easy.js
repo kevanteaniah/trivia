@@ -6,9 +6,15 @@ let availableQuestions
 
 let score = 0
 
+let bonus = 100
+
+let countQuestions = 0
+
 let currentQuestion
 
 let questionsAnswered = 0
+
+const MAX_QUESTIONS = 9
 
 
 const questions =[
@@ -115,6 +121,9 @@ const answerBoxes = Array.from(document.getElementsByClassName("answers-box"))
 const answers = Array.from(document.getElementsByClassName("answer"))
 console.log(answers)
 
+const questionCounter = document.getElementById('question-counter')
+const scoretext = document.getElementById('score')
+
 const resetButton = document.querySelector('.reset-btn')
 
 const allChoices = document.querySelectorAll('#answers-box')
@@ -134,6 +143,7 @@ function init() {
   
   // spread operator gets complete copy of array 
   availableQuestions = [...questions]
+
   questionsAnswered = 0
   handleTurn()
 }
@@ -157,6 +167,8 @@ function getRandomQuestion(){
   if(questionsAnswered >= availableQuestions.length){
     return
   }
+  
+  questionCounter.innerHTML = `${questionsAnswered}/${MAX_QUESTIONS}`
   const randomIdx = Math.floor(Math.random() * availableQuestions.length)
   if(availableQuestions[randomIdx].asked === false){
     console.log("notAsked")
@@ -204,7 +216,7 @@ function handleClick(evt){
         const clickedAnswer = clickedOption.dataset["number"]
           if(clickedAnswer === currentQuestion.correctAnswer){
             questionsAnswered++
-          
+            scoreKeeper(bonus)
             clickedOption.parentElement.classList.add("correct")
             console.log('correct')
             setTimeout(() =>{
@@ -222,6 +234,11 @@ function handleClick(evt){
       
           } 
 
+}
+
+function scoreKeeper(num){
+  score +=num
+  scoretext.innerText = score
 }
 
 function hideResetBtn(){

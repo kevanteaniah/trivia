@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="easy.css">
   
   <script defer src="./easy.js"></script>
@@ -16,24 +16,10 @@
 </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Pricing</a>
-            <a class="nav-link disabled">Disabled</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    
     <div class="main">
       <div class="game-box">
+        
         <h2 id="question-display">How are you?</h2>
         <div class="answers-box">
           <p class="answer" data-number= "1">answer1</p>
@@ -51,6 +37,22 @@
         </a>
       </div>
     </div>
+
+    <div class="hud-content">
+      <div id="hud">
+        <div id="hud-item">
+          <p class="hud-prefix">Question</p>
+          <h1 class="hud-main-text" id="question-counter"></h1>
+        </div>
+
+        
+          <div id="hud">
+            <div id="hud-item">
+              <p class="hud-prefix">score</p>
+              <h1 class="hud-main-text" id="score">0</h1>
+            </div>
+
+          </div>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61fff8629f7f53c6"></script>
   </body>
 </html>
