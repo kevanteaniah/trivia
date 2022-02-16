@@ -13,34 +13,96 @@ let questionsAnswered = 0
 
 const questions =[
     {
-      question: "2+2",
-      answer1: "4",
-      answer2: "3",
-      answer3: "2",
+      question: "Which game did Mario first appear in?",
+      answer1: "Donkey Kong",
+      answer2: "Zelda",
+      answer3: "Lion King",
+      answer4: "Tetris",
+      correctAnswer: "1",
+      asked: false,
+    },
+
+    {
+      question: "Who was Mario named after?",
+      answer1: "Real Estate Developer",
+      answer2: "The President",
+      answer3: "A guy from Italy",
+      answer4: "Mario Robinson",
+      correctAnswer: "1",
+      asked: false,
+    },
+
+    {
+      question: "How many jobs does Mario have?",
+      answer1: "10",
+      answer2: "13",
+      answer3: "14",
       answer4: "12",
-      correctAnswer: "1",
-      asked: false,
-    },
-
-    {
-      question: "What goes roof?",
-      answer1: "dog",
-      answer2: "cat",
-      answer3: "Jurgen",
-      answer4: "Tom",
-      correctAnswer: "1",
-      asked: false,
-    },
-
-    {
-      question: "What is tall?",
-      answer1: "an ant",
-      answer2: "a cat",
-      answer3: "a cup",
-      answer4: "a tree",
       correctAnswer: "4",
       asked: false,
     },
+
+    {
+      question: "Where did Mario appear as a villian?",
+      answer1: "Donkey Kong",
+      answer2: "Donkey Kong Junior",
+      answer3: "Lion King",
+      answer4: "Mario World",
+      correctAnswer: "2",
+      asked: false,
+    },
+
+    {
+      question: "Who is Mario's brother?",
+      answer1: "Kim K",
+      answer2: "Luigi",
+      answer3: "Shazam",
+      answer4: "Yoshi",
+      correctAnswer: "2",
+      asked: false,
+    },
+
+    {
+      question: "Who is Mario's nemesis?",
+      answer1: "Princess",
+      answer2: "Hunter",
+      answer3: "Bowser",
+      answer4: "Luigi",
+      correctAnswer: "3",
+      asked: false,
+    },
+
+    {
+      question: "What makes Mario grow?",
+      answer1: "love",
+      answer2: "mushrooms",
+      answer3: "a ladder",
+      answer4: "gold",
+      correctAnswer: "2",
+      asked: false,
+    },
+
+    {
+      question: "Who is Mario trying to save?",
+      answer1: "Princess",
+      answer2: "money",
+      answer3: "the world",
+      answer4: "a ton on life insurance",
+      correctAnswer: "1",
+      asked: false,
+    },
+
+    {
+      question: "What is Mario's last name?",
+      answer1: "Mario",
+      answer2: "Luigi",
+      answer3: "Obama",
+      answer4: "Washington",
+      correctAnswer: "1",
+      asked: false,
+    },
+
+    
 
     
 

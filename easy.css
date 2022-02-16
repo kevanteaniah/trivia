@@ -1,0 +1,18 @@
+body{
+  background-image: url("./images/Switch_SuperMario3DAllStars_SMG_screen_05_copy.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.game-box {
+  box-shadow: 5px 10px;
+  /* border: 1px solid cornflowerblue; */
+  padding: 50px;
+  width: 75vw;
+  box-shadow: 0 0.4rem 0 1.4rem 0 #638fcc;
+  background-color: rgb(250, 250, 250);
+  border: 1px solid rgb(255, 255, 255);
+}
+
