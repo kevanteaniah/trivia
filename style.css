@@ -247,6 +247,16 @@ a {
 
 }
 
+a:link {
+  color: black;
+}
+
+a:visited {
+  color:black;
+}
+
+
+
 
 @media only screen and (max-width: 600px)  {
 
