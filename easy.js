@@ -16,6 +16,12 @@ let questionsAnswered = 0
 
 const MAX_QUESTIONS = 9
 
+let startTime = 5;
+
+let correctSound 
+let wrongSound 
+
+
 
 const questions =[
     {
@@ -128,6 +134,8 @@ const resetButton = document.querySelector('.reset-btn')
 
 const allChoices = document.querySelectorAll('#answers-box')
 
+const timer = document.getElementById('timer')
+
 /*----------------------- Event Listeners -----------------------*/
 
 answers.forEach( answer => {
@@ -143,7 +151,7 @@ function init() {
   
   // spread operator gets complete copy of array 
   availableQuestions = [...questions]
-
+  
   questionsAnswered = 0
   handleTurn()
 }
@@ -151,6 +159,8 @@ function init() {
 init()
 function handleTurn(){
   allChoices.forEach((choice) =>{
+    correctSound = new sound("sounds/Mario Coin Sound - Sound Effect (HD).mp3")
+    wrongSound = new  sound("sounds/gta 5 death (sound effect).mp3")
 
     choice.classList.remove("correct")
     choice.classList.remove("wrong")
@@ -212,29 +222,38 @@ function handleClick(evt){
   console.log(evt.target)
   console.log("click")
   
+  
   const clickedOption = evt.target
         const clickedAnswer = clickedOption.dataset["number"]
           if(clickedAnswer === currentQuestion.correctAnswer){
             questionsAnswered++
             scoreKeeper(bonus)
+            
             clickedOption.parentElement.classList.add("correct")
             console.log('correct')
             setTimeout(() =>{
               clickedOption.parentElement.classList.remove("correct")
               handleTurn()
             }, 2000)
-            
+            correctSound.play()
             
             
           } else if(clickedAnswer !== currentQuestion.correctAnswer){ 
             clickedOption.parentElement.classList.add("wrong")
-            resetButton.style.display = "block"
+            
+            setTimeout(() =>{
+              clickedOption.parentElement.classList.remove("wrong")
+              handleTurn()
+            }, 2000)
+            wrongSound.play()
           
             console.log ('wrong')
       
           } 
 
 }
+
+
 
 function scoreKeeper(num){
   score +=num
@@ -245,4 +264,13 @@ function hideResetBtn(){
   resetButton.style.display = "none"
 }
 
+let time = startTime * 60
+setInterval(coundown, 1000)
+
+function coundown(){
+  const minutes = Math.floor(time / 60)
+  let seconds = time % 60
+  time--
+  timer.innerHTML = `${minutes}: ${seconds}`
+}
 hideResetBtn()
