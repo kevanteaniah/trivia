@@ -9,7 +9,7 @@
 <h2>Instructions</h2>
 First choose a category that you'd like to play. Read the question and choose the best answer before the time runs out. If you are correct, you wil be given bonus points, if you are incorrect, that question will be marked as wrong and you will not be given any bonus points. After you've completed one category, try your luck in the others.<br> 
 <br>
-
+<img src="./images/Screenshot%202022-02-17%20145955.png">
 <img src="images/Screenshot 2022-02-17 131958.png">
 
 
