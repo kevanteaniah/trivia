@@ -11,6 +11,11 @@
   padding: 0;
 }
 
+body {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
 #home-page{
   background-image: url("./images/switchBG.png");
   background-repeat: no-repeat;
