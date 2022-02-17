@@ -204,7 +204,7 @@ function render(){
     })
   } else {
     
-    questionDisplay.innerText = "Your are Brilliant, Try another category"
+    questionDisplay.innerText = "You are Brilliant, Try another category"
     
     
     answers.forEach(answer => answer.remove() )
