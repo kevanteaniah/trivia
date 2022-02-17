@@ -252,24 +252,19 @@ function handleClick(evt){
 
 }
 
+function startTimer(){
 
+  let timer = setInterval(() => {
+    countdown.textContent = timeLeft
+    timeLeft--
+    
+    if(timeLeft <= 0){
+      console.log("times up")
+      clearInterval(timer)
+      questionDisplay.innerText = "You ran out of time, try again!"
+      answerBoxes.forEach(answerBox => answerBox.remove() )
+    }
 
-function scoreKeeper(num){
-  score +=num
-  scoretext.innerText = score
-}
-
-function hideResetBtn(){
-  resetButton.style.display = "none"
-}
-
-let time = startTime * 60
-setInterval(coundown, 1000)
-
-function coundown(){
-  const minutes = Math.floor(time / 60)
-  let seconds = time % 60
-  time--
-  timer.innerHTML = `${minutes}: ${seconds}`
+  }, 1000)
 }
 hideResetBtn()

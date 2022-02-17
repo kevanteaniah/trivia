@@ -254,6 +254,20 @@ a:link {
 a:visited {
   color:black;
 }
+nav {
+  padding-bottom: 10px;
+  
+  
+}
+ul{
+  justify-content: center;
+  list-style: none;
+  display: flex;
+}
+
+li {
+  padding-right: 10px;
+}
 
 
 
@@ -310,6 +324,11 @@ a:visited {
   
 
 }
+
+/* ul{
+  justify-content: left;
+  display: flex;
+} */
 
 }
 
