@@ -427,7 +427,7 @@ const resetButton = document.querySelector('.reset-btn')
 const allChoices = document.querySelectorAll('#answers-box')
 
 const countdown = document.getElementById('timer')
-const thisCat = document.querySelector('.question-cat')
+
 
 /*----------------------- Event Listeners -----------------------*/
 
@@ -442,28 +442,30 @@ answers.forEach( answer => {
 
 function init() {
   
-  availableQuestions = [...questions[parseInt(thisCat.id)]]  
-  console.log(parseInt(thisCat.id))
+  availableQuestions = [...questions[0]]  
+  
   questionsAnswered = 0
+  startTimer()
   handleTurn()
 }
 
 
 init()
 function handleTurn(){
-  allChoices.forEach((choice) =>{
+  // allChoices.forEach((choice) =>{
     
-    choice.classList.remove("correct")
-    choice.classList.remove("wrong")
+  //   choice.classList.remove("correct")
+  //   choice.classList.remove("wrong")
     
-  })
+  // })
 
   currentQuestion = getRandomQuestion()
   render()
+  
 }
 
 function getRandomQuestion(){
-  startTimer()
+  
   if(questionsAnswered >= availableQuestions.length){
     return
   }
@@ -483,7 +485,9 @@ function getRandomQuestion(){
 }
 
 function render(){
-  if(currentQuestion !== undefined){
+  // if(!currentQuestion)render()
+  if(questionsAnswered <= 9){
+    console.log(currentQuestion)
     questionDisplay.innerText = currentQuestion.question
     // currentQuestion = availableQuestions[numberOfQuestions]
     
@@ -514,23 +518,35 @@ function handleClick(evt){
             
             clickedOption.parentElement.classList.add("correct")
             console.log('correct')
-            setTimeout(() =>{
-              clickedOption.parentElement.classList.remove("correct")
-              correctSound.volume = .10
-              correctSound.play()
-              handleTurn()
-            }, 2000)
-            
+            // setTimeout(() =>{
+            //   clickedOption.parentElement.classList.remove("correct")
+            //   correctSound.volume = .10
+            //   correctSound.play()
+            //   if(questionsAnswered > 9){
+            //     render()
+            //   } else{
+            //     handleTurn()
+            //   }
+              
+              
+            // }, 2000)
+            handleTurn()
             
             
           } else if(clickedAnswer !== currentQuestion.correctAnswer){ 
             clickedOption.parentElement.classList.add("wrong")
             wrongSound.play()
-            setTimeout(() =>{
-              clickedOption.parentElement.classList.remove("wrong")
-              handleTurn()
-            }, 2000)
-            
+            // setTimeout(() =>{
+            //   clickedOption.parentElement.classList.remove("wrong")
+              
+            //   if(questionsAnswered > 9){
+            //     render()
+            //   } else{
+            //     handleTurn()
+            //   }
+              
+            // }, 2000)
+            handleTurn()
           
             console.log ('wrong')
       
@@ -538,6 +554,9 @@ function handleClick(evt){
 
 }
 
+function checkCount(){
+  
+}
 
 
 function scoreKeeper(num){
