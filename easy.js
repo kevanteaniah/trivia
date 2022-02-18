@@ -478,7 +478,7 @@ function render() {
     countdown.textContent = ""
     clearInterval(timer)
     gameOver = true
-    questionDisplay.innerText = "You are Brilliant, Try another category"
+    questionDisplay.innerText = "You have completed this game, test your knowledge in another category!"
     answers.forEach(answer => answer.remove())
     answerBoxes.forEach(answerBox => answerBox.remove())
     answerBoxes.style.borderColor = "white"
@@ -531,7 +531,7 @@ function startTimer() {
     if (timeLeft <= 0) {
     
       clearInterval(timer)
-      questionDisplay.innerText = "You ran out of time, try again!"
+      questionDisplay.innerText = "You did not complete the game in time, try again or choose another category!"
       answerBoxes.forEach(answerBox => answerBox.remove())
     }
 
