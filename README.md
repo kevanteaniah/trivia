@@ -25,28 +25,27 @@ Image were found on google
   <li>CSS</li>
   <li>JavaScript</li>
   <li>HTML</li>
-  <li>git</li>
 </ul>
 
 <h2>Ice Box</h2>
 <div>
   <input type="checkbox" id="scales" name="scales"
-         checked>
+         >
   <label for="scales">Add different Categories</label>
 </div>
 <div>
   <input type="checkbox" id="scales" name="scales"
-         checked>
+         >
   <label for="scales">Give each category its own style</label>
 </div>
 <div>
   <input type="checkbox" id="scales" name="scales"
-         checked>
+         >
   <label for="scales">Create a responsive homepage</label>
 </div>
 <div>
   <input type="checkbox" id="scales" name="scales"
-         checked>
+         >
   <label for="scales">Add sounds from real games</label>
 </div>
 
