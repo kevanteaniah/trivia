@@ -14,6 +14,11 @@ First choose a category that you'd like to play. Read the question and choose th
 
 
 <h2>Credits</h2>
+Image were found on google
+<ul>
+  <li>Nitendo</li>
+  <li>Switch</li>
+</ul>
 
 <h2>Technologies Used</h2>
 <ul>
